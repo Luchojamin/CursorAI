@@ -64,3 +64,10 @@ button[type="submit"] {
 button[type="submit"]:hover {
   background: #a445b2;
 }
+.error-message {
+  color: #d32f2f;
+  font-size: 0.98rem;
+  margin-top: 0.3rem;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}

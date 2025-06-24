@@ -18,6 +18,7 @@ export class TaskFormComponent implements OnInit {
   isEdit = false;
   groups: Group[] = [];
   selectedGroupId: number | null = null;
+  groupError: string | null = null;
 
   constructor(
     private route: ActivatedRoute,
@@ -52,7 +53,11 @@ export class TaskFormComponent implements OnInit {
   }
 
   saveTask(): void {
-    if (!this.selectedGroupId) return; // group is required
+    if (!this.selectedGroupId) {
+      this.groupError = 'Please select a group.';
+      return;
+    }
+    this.groupError = null;
     const selectedGroup = this.groups.find(g => g.id === this.selectedGroupId);
     if (!selectedGroup) return;
     this.task.groups = [selectedGroup];

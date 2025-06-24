@@ -26,6 +26,7 @@
           <option [ngValue]="null" disabled selected>Select a group</option>
           <option *ngFor="let group of groups" [ngValue]="group.id">{{ group.name }}</option>
         </select>
+        <div *ngIf="groupError" class="error-message">{{ groupError }}</div>
       </div>
       <button type="submit">Save</button>
     </form>

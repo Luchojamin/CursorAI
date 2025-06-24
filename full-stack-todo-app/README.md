@@ -40,6 +40,10 @@ This is a full-stack To-Do application built with Angular 18, Node.js, Express, 
       ```bash
       docker-compose up -d
       ```
+    - After your docker is running, try to connect to the DB using the PgAdmin with the credentials you provided in the `.env` file.
+    - If you are able to connect to the DB, then the DB is running and you can proceed to the next step.
+    - If you are not able to connect to the DB, then there is an issue with the DB. Please check the logs of the docker container and fix the issue.
+
     - Install the backend dependencies:
       ```bash
       npm install
@@ -48,13 +52,22 @@ This is a full-stack To-Do application built with Angular 18, Node.js, Express, 
       ```bash
       npx prisma migrate dev
       ```
+    - Run the next sql query to check if tables are created as it was specified in the `prisma/schema.prisma` file:
+      ```sql
+      SELECT * FROM "Task";
+      SELECT * FROM "Group";
+      SELECT * FROM "TaskGroup";
+      ```
+      If you see the structure of the tables, then the tables are created and you can proceed to the next step.
+      If you don't see the structure of the tables, then there is an issue with the migrations. Please check the logs of the docker container and fix the issue.
+
     - Start the backend server:
       ```bash
       npm run dev
       ```
     The backend will be running at `http://localhost:3000`.
 
-3.  **Frontend Setup:**
+3.  **Frontend Setup:** Open a new terminal and follow the steps below:
 
     - Navigate to the `frontend` directory:
       ```bash
