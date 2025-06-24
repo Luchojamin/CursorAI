@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    font-family: sans-serif;
+    margin: 2em;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 1em;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+a:hover {
+    color: #666;
+}

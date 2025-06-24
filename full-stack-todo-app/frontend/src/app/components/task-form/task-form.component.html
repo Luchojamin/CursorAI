@@ -1,0 +1,33 @@
+<div class="form-card">
+  <div class="form-header">
+    <h2>{{ isEdit ? 'Edit' : 'New' }} Task</h2>
+  </div>
+  <div class="form-content">
+    <form (ngSubmit)="saveTask()">
+      <div>
+        <label for="title">Title</label>
+        <input type="text" id="title" name="title" [(ngModel)]="task.title" required>
+      </div>
+      <div>
+        <label for="description">Description</label>
+        <textarea id="description" name="description" [(ngModel)]="task.description"></textarea>
+      </div>
+      <div>
+        <label for="dueDate">Due Date</label>
+        <input type="date" id="dueDate" name="dueDate" [(ngModel)]="task.dueDate">
+      </div>
+      <div>
+        <label for="completed">Completed</label>
+        <input type="checkbox" id="completed" name="completed" [(ngModel)]="task.completed">
+      </div>
+      <div>
+        <label for="group">Group</label>
+        <select id="group" name="group" [(ngModel)]="selectedGroupId" required>
+          <option [ngValue]="null" disabled selected>Select a group</option>
+          <option *ngFor="let group of groups" [ngValue]="group.id">{{ group.name }}</option>
+        </select>
+      </div>
+      <button type="submit">Save</button>
+    </form>
+  </div>
+</div>

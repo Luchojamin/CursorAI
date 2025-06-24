@@ -1,0 +1,32 @@
+<div class="task-card">
+  <div class="card-bg"></div>
+  <div class="card-content">
+    <div class="card-header">
+      <h2>Daily Tasks</h2>
+      <div class="task-progress">
+        <span>{{ completedCount }}/{{ totalCount }} tasks</span>
+        <div class="progress-bar">
+          <div class="progress" [style.width.%]="progressPercent"></div>
+        </div>
+      </div>
+      <button class="add-btn" routerLink="/tasks/new">+</button>
+    </div>
+    <ul class="task-list">
+      <li *ngFor="let task of incompleteTasks">
+        <span class="circle"></span>
+        {{ task.title }}
+        <a class="edit-link" [routerLink]="['/tasks', task.id, 'edit']" title="Edit">&#9998;</a>
+      </li>
+    </ul>
+    <div class="completed-section">
+      <div class="completed-header">COMPLETED ({{ completedCount }})</div>
+      <ul class="completed-list">
+        <li *ngFor="let task of completedTasks">
+          <span class="circle checked">&#10003;</span>
+          <span class="completed-title">{{ task.title }}</span>
+          <a class="edit-link" [routerLink]="['/tasks', task.id, 'edit']" title="Edit">&#9998;</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

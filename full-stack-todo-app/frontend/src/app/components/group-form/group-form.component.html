@@ -1,0 +1,14 @@
+<div class="form-card">
+  <div class="form-header">
+    <h2>{{ isEdit ? 'Edit' : 'New' }} Group</h2>
+  </div>
+  <div class="form-content">
+    <form (ngSubmit)="saveGroup()">
+      <div>
+        <label for="name">Group Name</label>
+        <input type="text" id="name" name="name" [(ngModel)]="group.name" required>
+      </div>
+      <button type="submit">Save</button>
+    </form>
+  </div>
+</div>

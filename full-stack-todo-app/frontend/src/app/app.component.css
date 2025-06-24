@@ -1,0 +1,40 @@
+.main-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: linear-gradient(120deg, #f9d423 0%, #e65c00 50%, #a445b2 100%);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  border-bottom-left-radius: 1.5rem;
+  border-bottom-right-radius: 1.5rem;
+  padding: 0.5rem 0;
+}
+.main-nav ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.main-nav li {
+  display: flex;
+}
+.main-nav a {
+  color: #fff;
+  font-size: 1.15rem;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: 1.2rem;
+  transition: background 0.2s, color 0.2s;
+}
+.main-nav a.active, .main-nav a:hover {
+  background: rgba(255,255,255,0.18);
+  color: #fff;
+}
+main {
+  margin-top: 70px;
+}

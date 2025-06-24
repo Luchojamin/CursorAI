@@ -1,0 +1,16 @@
+<div class="form-card">
+  <div class="form-header">
+    <h2>Groups</h2>
+  </div>
+  <div class="form-content">
+    <button class="add-btn" routerLink="/groups/new">+</button>
+    <div *ngIf="errorMessage" class="error-alert">{{ errorMessage }}</div>
+    <ul class="group-list">
+      <li *ngFor="let group of groups">
+        <span class="group-name">{{ group.name }}</span>
+        <a class="edit-link" [routerLink]="['/groups', group.id, 'edit']" title="Edit">&#9998;</a>
+        <button class="delete-btn" (click)="deleteGroup(group.id)" title="Delete">&#128465;</button>
+      </li>
+    </ul>
+  </div>
+</div>

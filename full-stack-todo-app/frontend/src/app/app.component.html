@@ -1,0 +1,12 @@
+<header>
+  <nav class="main-nav">
+    <ul>
+      <li><a routerLink="/tasks" routerLinkActive="active" [attr.href]="'/tasks'">Tasks</a></li>
+      <li><a routerLink="/groups" routerLinkActive="active" [attr.href]="'/groups'">Groups</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <router-outlet></router-outlet>
+</main>

@@ -1,0 +1,66 @@
+.form-card {
+  max-width: 400px;
+  margin: 2.5rem auto;
+  background: #fff;
+  border-radius: 2rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  overflow: hidden;
+}
+.form-header {
+  background: linear-gradient(120deg, #f9d423 0%, #e65c00 50%, #a445b2 100%);
+  color: #fff;
+  padding: 2rem 1.5rem 1.2rem 1.5rem;
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
+  text-align: left;
+}
+.form-header h2 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 700;
+}
+.form-content {
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+}
+form div {
+  margin-bottom: 1.2rem;
+}
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  color: #a445b2;
+}
+input[type="text"],
+input[type="date"],
+select,
+textarea {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 1rem;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s;
+}
+input[type="text"]:focus,
+input[type="date"]:focus,
+select:focus,
+textarea:focus {
+  border: 1.5px solid #a445b2;
+}
+button[type="submit"] {
+  background: linear-gradient(120deg, #f9d423 0%, #e65c00 50%, #a445b2 100%);
+  color: #fff;
+  border: none;
+  border-radius: 1.2rem;
+  padding: 0.7rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: background 0.2s;
+}
+button[type="submit"]:hover {
+  background: #a445b2;
+}

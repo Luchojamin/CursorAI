@@ -1,0 +1,139 @@
+.task-card {
+  position: relative;
+  border-radius: 2rem;
+  overflow: hidden;
+  width: 100%;
+  max-width: 350px;
+  margin: 2rem auto;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  background: #fff;
+}
+.card-bg {
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 180px;
+  background: linear-gradient(120deg, #f9d423 0%, #e65c00 50%, #a445b2 100%);
+  opacity: 0.7;
+  z-index: 1;
+}
+.card-content {
+  position: relative;
+  z-index: 2;
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+}
+.card-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+.card-header h2 {
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  margin-top: 0;
+}
+.task-progress {
+  color: #fff;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  width: 100%;
+}
+.progress-bar {
+  width: 100%;
+  height: 6px;
+  background: rgba(255,255,255,0.3);
+  border-radius: 3px;
+  margin-top: 0.2rem;
+  margin-bottom: 0.5rem;
+  overflow: hidden;
+}
+.progress {
+  height: 100%;
+  background: #fff;
+  border-radius: 3px;
+  transition: width 0.3s;
+}
+.add-btn { 
+  position: absolute;
+  left: 50%;
+  top: 140px;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  color: #a445b2;
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  font-size: 2rem;
+  font-weight: bold;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  cursor: pointer;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+.add-btn:hover {
+  background: #f9d423;
+  color: #fff;
+}
+.task-list, .completed-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.task-list li, .completed-list li {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 0;
+  font-size: 1.1rem;
+  border-bottom: 1px solid #f0f0f0;
+}
+.task-list li:last-child, .completed-list li:last-child {
+  border-bottom: none;
+}
+.circle {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid #a445b2;
+  margin-right: 1rem;
+  background: #fff;
+  vertical-align: middle;
+}
+.circle.checked {
+  background: #a445b2;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  border: 2px solid #a445b2;
+}
+.completed-section {
+  margin-top: 1.5rem;
+}
+.completed-header {
+  font-size: 0.9rem;
+  color: #a445b2;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.completed-title {
+  color: #bbb;
+  text-decoration: line-through;
+}
+.edit-link {
+  margin-left: auto;
+  color: #a445b2;
+  text-decoration: none;
+  font-size: 1.2rem;
+  padding: 0 0.5rem;
+  transition: color 0.2s;
+}
+.edit-link:hover {
+  color: #e65c00;
+}
