@@ -72,12 +72,32 @@ This will start the SQL Server database container, accessible at `localhost:1433
 
 ---
 
-## Environment Variables
+## Environment Variables & Security
 
-- `backend/.env.example` and `backend/appsettings.json` are preconfigured for the default hybrid setup:
-  ```env
-  ConnectionStrings__DefaultConnection=Server=localhost,1433;Database=TodoDb;User=sa;Password=Your_password123;TrustServerCertificate=True;
-  ```
+### Environment Files
+- `backend/env.example` - Example environment configuration
+- `backend/.env` - **Local environment file (not committed to git)**
+- `backend/appsettings.json` - Default configuration (committed to git)
+
+### Security Best Practices
+1. **Never commit `.env` files** - They may contain sensitive information like database passwords
+2. **Use `.env.example`** - Copy `backend/env.example` to `backend/.env` and update with your values
+3. **Update `.gitignore`** - The project includes a comprehensive `.gitignore` that excludes:
+   - All `.env` files
+   - Build artifacts (`bin/`, `obj/`, `dist/`)
+   - IDE files (`.vs/`, `.vscode/`)
+   - Node modules and cache files
+
+### If you accidentally committed a `.env` file:
+1. Remove it from git tracking:
+   ```bash
+   git rm --cached backend/.env
+   ```
+2. Commit the removal:
+   ```bash
+   git commit -m "Remove .env file from tracking"
+   ```
+3. The file will remain locally but won't be tracked by git anymore
 
 ---
 
