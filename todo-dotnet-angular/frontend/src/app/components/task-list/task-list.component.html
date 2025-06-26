@@ -1,0 +1,65 @@
+<div *ngIf="successMessage" class="success">{{ successMessage }}</div>
+<div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+<div class="card">
+  <h2>📋 Your Tasks</h2>
+  
+  <div *ngIf="loading" class="loading">
+    <div class="spinner"></div>
+  </div>
+
+  <div *ngIf="!loading && tasks.length === 0" class="empty-state">
+    <h3>🎉 No tasks yet!</h3>
+    <p>Start by creating your first task to get organized.</p>
+    <a routerLink="/tasks/new" class="btn btn-primary">Create Your First Task</a>
+  </div>
+
+  <div *ngIf="!loading && tasks.length > 0" class="task-list">
+    <div *ngFor="let task of tasks" 
+         class="task-item" 
+         [class.completed]="task.completed">
+      
+      <div class="task-header">
+        <div>
+          <h3 class="task-title">{{ task.title }}</h3>
+          <p class="task-description">{{ task.description }}</p>
+        </div>
+        <div class="task-status" [class.completed]="task.completed">
+          {{ task.completed ? '✅ Completed' : '⏳ Pending' }}
+        </div>
+      </div>
+
+      <div class="task-meta">
+        <span class="task-due-date">
+          📅 Due: {{ task.dueDate | date:'mediumDate' }}
+        </span>
+      </div>
+
+      <div *ngIf="task.groups && task.groups.length > 0" class="task-groups">
+        <span *ngFor="let group of task.groups" class="group-tag">
+          🏷️ {{ group.name }}
+        </span>
+      </div>
+
+      <div class="task-actions">
+        <button *ngIf="!task.completed" 
+                (click)="completeTask(task.id)" 
+                class="btn btn-success btn-sm">
+          ✅ Mark Complete
+        </button>
+        <button *ngIf="task.completed" 
+                (click)="uncompleteTask(task.id)" 
+                class="btn btn-secondary btn-sm">
+          🔄 Mark Incomplete
+        </button>
+        <button (click)="editTask(task.id)" 
+                class="btn btn-primary btn-sm">
+          ✏️ Edit
+        </button>
+        <button (click)="deleteTask(task.id)" 
+                class="btn btn-danger btn-sm">
+          🗑️ Delete
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

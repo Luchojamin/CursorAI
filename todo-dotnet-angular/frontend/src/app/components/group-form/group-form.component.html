@@ -1,0 +1,38 @@
+<div class="card">
+  <h2>{{ isEditing ? '✏️ Edit Group' : '🏷️ Create New Group' }}</h2>
+
+  <form (ngSubmit)="onSubmit()" #groupForm="ngForm">
+    <div class="form-group">
+      <label for="name">🏷️ Group Name</label>
+      <input 
+        type="text" 
+        id="name" 
+        name="name" 
+        [(ngModel)]="group.name" 
+        required 
+        class="form-control"
+        placeholder="Enter group name..."
+        #name="ngModel">
+      <div *ngIf="name.invalid && (name.dirty || name.touched)" class="error-message">
+        Group name is required
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" 
+              [disabled]="groupForm.invalid || loading" 
+              class="btn btn-primary">
+        <span *ngIf="loading" class="spinner-small"></span>
+        {{ isEditing ? '💾 Update Group' : '✨ Create Group' }}
+      </button>
+      <a routerLink="/groups" class="btn btn-secondary">❌ Cancel</a>
+    </div>
+  </form>
+
+  <div *ngIf="successMessage" class="success-message">
+    {{ successMessage }}
+  </div>
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+</div>

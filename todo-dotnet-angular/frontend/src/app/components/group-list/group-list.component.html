@@ -1,0 +1,30 @@
+<div *ngIf="successMessage" class="success">{{ successMessage }}</div>
+<div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+<div class="card">
+  <h2>🏷️ Your Groups</h2>
+  
+  <div *ngIf="loading" class="loading">
+    <div class="spinner"></div>
+  </div>
+
+  <div *ngIf="!loading && groups.length === 0" class="empty-state">
+    <h3>🎯 No groups yet!</h3>
+    <p>Create your first group to start organizing your tasks.</p>
+    <a routerLink="/groups/new" class="btn btn-primary">Create Your First Group</a>
+  </div>
+
+  <div *ngIf="!loading && groups.length > 0" class="group-list">
+    <div *ngFor="let group of groups" class="group-item">
+      <h3 class="group-name">🏷️ {{ group.name }}</h3>
+      
+      <div class="group-actions">
+        <button (click)="editGroup(group.id)" class="btn btn-primary btn-sm">
+          ✏️ Edit
+        </button>
+        <button (click)="deleteGroup(group.id)" class="btn btn-danger btn-sm">
+          🗑️ Delete
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
